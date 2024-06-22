@@ -10,8 +10,8 @@
   <name>spring-boot-ecommerce</name>
 
   <modules>
-    <module>core</module>
     <module>spring-boot-ecommerce-model-domain</module>
+    <module>core</module>
   </modules>
 
   <properties>
@@ -84,6 +84,30 @@
           </excludes>
         </configuration>
       </plugin>
+
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>br.com.gabriel.App</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
